@@ -2,9 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import Issue from './models/Issue';
 import Account from './models/Account';
+/*
+import Issue from './models/Issue';
+
 import User from './models/User';
+*/
 import crypto from 'crypto';
 import passport from 'passport';
 var LocalStrategy = require('passport-local').Strategy;
@@ -40,32 +43,29 @@ router.route('/login').post((req, res) =>{
 })
 
 router.route('/reg').post((req, res) =>{
-  Account.register(new Account({ username : req.body.username}), req.body.password, function(err, account) {
-      if (err) {
-        //return res.render('register', { error : err.message });
-
-        console.log("errors....")
-        console.log(err);
-      }
-
-      passport.authenticate('local')(req, res, function () {
-
-
-        console.log("success authenticate with user: "+req.user.username);
-
-        res.json(req.user.username);
-/*
-          req.session.save(function (err) {
-              if (err) {
-                  res.status(400).send('Update failed')
-              }
-              res.redirect('/');
-          });*/
+  Account.findOne({username: req.body.username}, function(err, user){
+    if(err){console.log('error in findOne')}
+    if(!user){
+      console.log('user does not exist');
+      Account.register(new Account({ username : req.body.username}), req.body.password, function(err, account) {
+          if (err) {
+            console.log("errors....")
+            console.log(err);
+            res.json(err)
+          }
+          res.json(req.body.username);
       });
-  });
+    }
+    else{
+      console.log('user exists');
+      res.json("user exists");
+      //return done(null, fals, {message: "User already exists"});
+    }
+  })
+
 });
 
-
+/*
 
 router.route('/users').get((req,res) =>{
   User.find((err, users)=>{
@@ -146,6 +146,8 @@ router.route('/issues/delete/:id').get((req, res) => {
             res.json('Removed successfully');
     });
 });
+
+*/
 
 app.use('/', router);
 
