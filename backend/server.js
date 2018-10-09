@@ -49,24 +49,12 @@ router.route('/login').post((req, res) =>{
         expiresIn: 120,
         subject: req.user.username
     });
-    //console.log(""+jwtBearerToken);
-    //res.cookie("SESSIONID", jwtBearerToken, {httpOnly:true, secure:true});
-    console.log("successfully authenticated with user: "+req.user.username);
-
-
     res.json({
       idToken: jwtBearerToken,
       expiresIn: 120,
       username:req.user.username
     });
   });
-  /*
-  const jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, {
-      algorithm: 'RS256',
-      expiresIn: 120,
-      subject: "testuser"
-  });
-  console.log(""+jwtBearerToken);*/
 })
 
 router.route('/reg').post((req, res) =>{

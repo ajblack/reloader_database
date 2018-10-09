@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private userService: UserService, private alertService: AlertService) { }
 
   ngOnInit() {
+    console.log("Is there a current user?");
+    console.log(localStorage.getItem("current_user"));
   }
 
   handleLoginError(error: HttpErrorResponse) {

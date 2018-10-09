@@ -16,7 +16,7 @@ import {AppalertComponent} from "../appalert/appalert.component";
 export class RegUserComponent implements OnInit {
   email:string;
   password:string;
-  user: string;
+  user:string;
 
   constructor(private router: Router, private userService: UserService, private alertService: AlertService) { }
 
@@ -51,7 +51,10 @@ export class RegUserComponent implements OnInit {
       else{
         //redirect to home page.  put up modal window that the user is all ready to roll
         this.alertService.sendMessage("User successfully created", "success");
-        this.router.navigate(['homeview',this.email]);
+        this.userService.authUser(this.email, this.password).subscribe((data:User)=>{
+          this.user = this.userService.getCurrentUser();
+          this.router.navigate(['homeview',this.user]);
+        }, error => this.handleRegisterUserError(error, "error in logging in the newly registered user"));
       }
     }, error => this.handleRegisterUserError(error, "error in registering the new user"));
 
