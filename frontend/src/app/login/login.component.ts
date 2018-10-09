@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   user: string;
+  testy: string;
 
   constructor(private router: Router, private userService: UserService, private alertService: AlertService) { }
 
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
 
   authUser(){
     this.userService.authUser(this.email, this.password).subscribe((data:User)=>{
-      this.user = data.user;
+      this.user = this.userService.getCurrentUser();
       this.router.navigate(['homeview',this.user]);
     }, error => this.handleLoginError(error));
   }

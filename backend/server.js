@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import Account from './models/Account';
 import * as jwt from 'jsonwebtoken';
 import * as fs from "fs";
+
 /*
 import Issue from './models/Issue';
 
@@ -49,12 +50,14 @@ router.route('/login').post((req, res) =>{
         subject: req.user.username
     });
     //console.log(""+jwtBearerToken);
-    res.cookie("SESSIONID", jwtBearerToken, {httpOnly:true, secure:true});
+    //res.cookie("SESSIONID", jwtBearerToken, {httpOnly:true, secure:true});
     console.log("successfully authenticated with user: "+req.user.username);
 
 
     res.json({
-      user:req.user.username
+      idToken: jwtBearerToken,
+      expiresIn: 120,
+      username:req.user.username
     });
   });
   /*
