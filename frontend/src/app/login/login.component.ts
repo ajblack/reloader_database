@@ -17,10 +17,13 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   user: string;
+  testy: string;
 
   constructor(private router: Router, private userService: UserService, private alertService: AlertService) { }
 
   ngOnInit() {
+    console.log("Is there a current user?");
+    console.log(localStorage.getItem("current_user"));
   }
 
   handleLoginError(error: HttpErrorResponse) {
@@ -41,8 +44,8 @@ export class LoginComponent implements OnInit {
   };
 
   authUser(){
-    this.userService.authUser(this.email, this.password).subscribe((data: string)=>{
-      this.user = data;
+    this.userService.authUser(this.email, this.password).subscribe((data:User)=>{
+      this.user = this.userService.getCurrentUser();
       this.router.navigate(['homeview',this.user]);
     }, error => this.handleLoginError(error));
   }

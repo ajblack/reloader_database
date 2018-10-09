@@ -3,6 +3,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import Account from './models/Account';
+import * as jwt from 'jsonwebtoken';
+import * as fs from "fs";
+
 /*
 import Issue from './models/Issue';
 
@@ -30,6 +33,9 @@ mongoose.connect('mongodb://testuser:testpassword1@ds261332.mlab.com:61332/loadd
 
 const connection = mongoose.connection;
 
+const RSA_PRIVATE_KEY = fs.readFileSync('private.key');
+
+
 
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
@@ -37,9 +43,18 @@ connection.once('open', () => {
 
 router.route('/login').post((req, res) =>{
   passport.authenticate('local')(req, res, function(){
-    console.log("successfully authenticated with user: "+req.user.username);
-    res.json(req.user.username);
-  })
+
+    const jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, {
+        algorithm: 'RS256',
+        expiresIn: 120,
+        subject: req.user.username
+    });
+    res.json({
+      idToken: jwtBearerToken,
+      expiresIn: 120,
+      username:req.user.username
+    });
+  });
 })
 
 router.route('/reg').post((req, res) =>{
@@ -53,6 +68,7 @@ router.route('/reg').post((req, res) =>{
             console.log(err);
             res.json(err)
           }
+
           res.json(req.body.username);
       });
     }

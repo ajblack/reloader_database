@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as moment from "moment";
+import {tap} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   uri = 'http://localhost:4000';
+
+
 
   constructor(private http:HttpClient) { }
 
@@ -20,7 +24,38 @@ export class UserService {
       password: password
     };
 
-    return this.http.post(`${this.uri}/login`, myuser);
+
+    return this.http.post(`${this.uri}/login`, myuser)
+    .pipe(
+      tap(res => this.setSession(res))
+    );
+  }
+
+  private setSession(authResult){
+    const expiresAt = moment().add(authResult.expiresIn,'second');
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+    localStorage.setItem('current_user', authResult.username);
+    console.log("from setsession: current user is: "+authResult.username);
+  }
+
+  public isLoggedIn() {
+        return moment().isBefore(this.getExpiration());
+    }
+
+    isLoggedOut() {
+        return !this.isLoggedIn();
+    }
+
+    getExpiration() {
+        const expiration = localStorage.getItem("expires_at");
+        const expiresAt = JSON.parse(expiration);
+        return moment(expiresAt);
+    }
+
+  getCurrentUser(){
+    console.log("getcurrentuser is called")
+    return localStorage.getItem("current_user");
   }
 
   regNewUser(email, password){
