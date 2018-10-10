@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../user.service";
 import {RouterModule, Routes, ActivatedRoute, RouterStateSnapshot} from '@angular/router';
 
 @Component({
@@ -8,15 +9,12 @@ import {RouterModule, Routes, ActivatedRoute, RouterStateSnapshot} from '@angula
 })
 export class HomeViewComponent implements OnInit {
   user: string;
-  constructor(private route: ActivatedRoute) {
-    console.log("Called Constructor");
+  constructor(private route: ActivatedRoute, private userService: UserService) {
    }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.user = this.route.snapshot.paramMap.get('user');
-      console.log("param 1 is: "+this.user);
-    });
+    this.user = this.userService.getCurrentUser();
+    console.log("homeview current user is :"+this.user);
   }
 
 }
