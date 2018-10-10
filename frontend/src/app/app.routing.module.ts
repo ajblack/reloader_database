@@ -4,12 +4,13 @@ import {LoginComponent} from './login/login.component';
 import {PriceviewComponent} from './priceview/priceview.component';
 import {RegUserComponent} from './reg-user/reg-user.component';
 import { HomeViewComponent } from './homeview/homeview.component';
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {path: 'priceview', component: PriceviewComponent},
   {path: 'reg-user', component: RegUserComponent},
-  {path: 'homeview', component: HomeViewComponent},
+  {path: 'homeview', component: HomeViewComponent, canActivate: [AuthGuard]},
   {path : '', component : LoginComponent}
 ];
 
