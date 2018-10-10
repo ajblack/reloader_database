@@ -53,7 +53,7 @@ export class RegUserComponent implements OnInit {
         this.alertService.sendMessage("User successfully created", "success");
         this.userService.authUser(this.email, this.password).subscribe((data:User)=>{
           this.user = this.userService.getCurrentUser();
-          this.router.navigate(['homeview',this.user]);
+          this.router.navigate(['homeview']);
         }, error => this.handleRegisterUserError(error, "error in logging in the newly registered user"));
       }
     }, error => this.handleRegisterUserError(error, "error in registering the new user"));

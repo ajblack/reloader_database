@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
   authUser(){
     this.userService.authUser(this.email, this.password).subscribe((data:User)=>{
       this.user = this.userService.getCurrentUser();
-      this.router.navigate(['homeview',this.user]);
+      this.router.navigate(['homeview']);
     }, error => this.handleLoginError(error));
   }
 
