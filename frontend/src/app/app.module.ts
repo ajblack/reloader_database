@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { PriceviewComponent } from './priceview/priceview.component';
 import {UserService} from './user.service';
 import {AlertService} from './alert.service';
+import {AuthGuardService} from './auth-guard.service';
 import { RegUserComponent } from './reg-user/reg-user.component';
 import { HomeViewComponent } from './homeview/homeview.component';
 @NgModule({
@@ -32,7 +33,8 @@ import { HomeViewComponent } from './homeview/homeview.component';
   providers: [
     ApiService,
     UserService,
-    AlertService
+    AlertService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
