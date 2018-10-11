@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     console.log("Is there a current user?");
     console.log(localStorage.getItem("current_user"));
+    if(localStorage.getItem("current_user")){
+      this.router.navigate(['homeview']);
+    }
   }
 
   handleLoginError(error: HttpErrorResponse) {

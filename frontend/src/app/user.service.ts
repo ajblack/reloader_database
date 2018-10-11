@@ -39,19 +39,26 @@ export class UserService {
     console.log("from setsession: current user is: "+authResult.username);
   }
 
-  public isLoggedIn() {
+  logOut(){
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
+    localStorage.removeItem("current_user");
+  }
+
+  isLoggedIn() {
+    console.log("checking isLoggedIn");
         return moment().isBefore(this.getExpiration());
-    }
+  }
 
-    isLoggedOut() {
-        return !this.isLoggedIn();
-    }
+  isLoggedOut() {
+      return !this.isLoggedIn();
+  }
 
-    getExpiration() {
-        const expiration = localStorage.getItem("expires_at");
-        const expiresAt = JSON.parse(expiration);
-        return moment(expiresAt);
-    }
+  getExpiration() {
+      const expiration = localStorage.getItem("expires_at");
+      const expiresAt = JSON.parse(expiration);
+      return moment(expiresAt);
+  }
 
   getCurrentUser(){
     console.log("getcurrentuser is called")
