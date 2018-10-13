@@ -3,14 +3,9 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import Account from './models/Account';
+import Load from './models/Load';
 import * as jwt from 'jsonwebtoken';
 import * as fs from "fs";
-
-/*
-import Issue from './models/Issue';
-
-import User from './models/User';
-*/
 import crypto from 'crypto';
 import passport from 'passport';
 var LocalStrategy = require('passport-local').Strategy;
@@ -55,7 +50,18 @@ router.route('/login').post((req, res) =>{
       username:req.user.username
     });
   });
-})
+});
+
+router.route('/makeload').post((req, res) =>{
+  let load = new Load(req.body);
+  load.save()
+      .then(issue => {
+          res.status(200).json({'load': 'Added successfully'});
+      })
+      .catch(err => {
+          res.status(400).send('Failed to create new record');
+      });
+});
 
 router.route('/reg').post((req, res) =>{
   Account.findOne({username: req.body.username}, function(err, user){
