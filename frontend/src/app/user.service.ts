@@ -65,6 +65,10 @@ export class UserService {
     return localStorage.getItem("current_user");
   }
 
+  public getToken(): string {
+    return localStorage.getItem('id_token');
+  }
+
   regNewUser(email, password){
     const myuser = {
       username: email,
