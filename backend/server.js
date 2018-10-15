@@ -63,6 +63,15 @@ router.route('/makeload').post((req, res) =>{
       });
 });
 
+router.route('/userloads/:username').get((req, res) =>{
+  Load.find({owner: req.params.username}, function(err, loads){
+    if (err)
+        console.log(err);
+    else
+        res.json(loads);
+  })
+});
+
 router.route('/reg').post((req, res) =>{
   Account.findOne({username: req.body.username}, function(err, user){
     if(err){console.log('error in findOne')}
