@@ -36,7 +36,6 @@ export class UserService {
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
     localStorage.setItem('current_user', authResult.username);
-    console.log("from setsession: current user is: "+authResult.username);
   }
 
   logOut(){
@@ -61,8 +60,11 @@ export class UserService {
   }
 
   getCurrentUser(){
-    console.log("getcurrentuser is called")
     return localStorage.getItem("current_user");
+  }
+
+  public getToken(): string {
+    return localStorage.getItem('id_token');
   }
 
   regNewUser(email, password){

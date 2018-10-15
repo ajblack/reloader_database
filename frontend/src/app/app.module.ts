@@ -12,8 +12,10 @@ import { PriceviewComponent } from './priceview/priceview.component';
 import {UserService} from './user.service';
 import {AlertService} from './alert.service';
 import {AuthGuardService} from './auth-guard.service';
+import {AuthInterceptor} from './auth-interceptor';
 import { RegUserComponent } from './reg-user/reg-user.component';
 import { HomeViewComponent } from './homeview/homeview.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,10 +33,17 @@ import { HomeViewComponent } from './homeview/homeview.component';
     NgbModule
   ],
   providers: [
+    AuthInterceptor,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     ApiService,
     UserService,
     AlertService,
     AuthGuardService
+
   ],
   bootstrap: [AppComponent]
 })
