@@ -9,13 +9,17 @@ import {tap} from 'rxjs/operators'
 export class UserService {
 
   uri = 'http://localhost:4000';
-
+  user: string;
 
 
   constructor(private http:HttpClient) { }
 
   getUsers(){
     return this.http.get(`${this.uri}/users`);
+  }
+
+  getUserLoadData(){
+    return this.http.get(`${this.uri}/userloads/${this.getCurrentUser()}`);
   }
 
   authUser(email, password){
