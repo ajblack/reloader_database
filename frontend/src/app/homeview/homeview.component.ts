@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../user.service";
 import {AuthInterceptor} from "../auth-interceptor";
 import {Router} from "@angular/router";
+import {Load} from "../load.model";
 import {RouterModule, Routes, ActivatedRoute, RouterStateSnapshot} from '@angular/router';
 
 @Component({
@@ -11,12 +12,21 @@ import {RouterModule, Routes, ActivatedRoute, RouterStateSnapshot} from '@angula
 })
 export class HomeViewComponent implements OnInit {
   user: string;
+  loadData: Load[];
   constructor(private authInterceptor: AuthInterceptor, private route: ActivatedRoute, private userService: UserService, private router: Router) {
    }
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
-    console.log("homeview current user is :"+this.user);
+    this.userService.getUserLoadData().subscribe((loads: Load[]) =>{
+       this.loadData = loads;
+       //this.checkData();
+    });
+  }
+
+  checkData(){
+    console.log("load data is: ");
+    console.log(this.loadData);
   }
 
   logOffUser(){
