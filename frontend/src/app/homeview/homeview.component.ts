@@ -12,14 +12,21 @@ import {RouterModule, Routes, ActivatedRoute, RouterStateSnapshot} from '@angula
 })
 export class HomeViewComponent implements OnInit {
   user: string;
-  loadData:Load[];
+  loadData: Load[];
   constructor(private authInterceptor: AuthInterceptor, private route: ActivatedRoute, private userService: UserService, private router: Router) {
    }
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
-    this.userService.getUserLoadData().subscribe(val => console.log(val));
-    //console.log(this.loadData);
+    this.userService.getUserLoadData().subscribe((loads: Load[]) =>{
+       this.loadData = loads;
+       //this.checkData();
+    });
+  }
+
+  checkData(){
+    console.log("load data is: ");
+    console.log(this.loadData);
   }
 
   logOffUser(){
