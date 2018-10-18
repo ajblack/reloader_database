@@ -14,6 +14,7 @@ import {AlertService} from './alert.service';
 import {AuthGuardService} from './auth-guard.service';
 import {AuthInterceptor} from './auth-interceptor';
 import { RegUserComponent } from './reg-user/reg-user.component';
+import {LoadEntryComponent} from './loadentry/loadentry.component';
 import { HomeViewComponent } from './homeview/homeview.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
@@ -22,6 +23,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     LoginComponent,
     AppalertComponent,
     PriceviewComponent,
+    LoadEntryComponent,
     RegUserComponent,
     HomeViewComponent
   ],
