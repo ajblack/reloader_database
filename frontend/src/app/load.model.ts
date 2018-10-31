@@ -12,6 +12,7 @@ export class Load implements Deserializable {
     primer:string;
     notes:string[];
 
+
     deserialize(input:any){
       Object.assign(this, input);
         return this;

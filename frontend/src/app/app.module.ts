@@ -15,6 +15,7 @@ import {AuthGuardService} from './auth-guard.service';
 import {AuthInterceptor} from './auth-interceptor';
 import { RegUserComponent } from './reg-user/reg-user.component';
 import {LoadEntryComponent} from './loadentry/loadentry.component';
+import {LoadTableComponent} from './loadtable/loadtable.component';
 import { HomeViewComponent } from './homeview/homeview.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
@@ -24,6 +25,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AppalertComponent,
     PriceviewComponent,
     LoadEntryComponent,
+    LoadTableComponent,
     RegUserComponent,
     HomeViewComponent
   ],

@@ -1,0 +1,9 @@
+
+<div class="loadTableColumnTitleContainer">
+  <span class="loadTableColumnTitles" *ngFor="let entry of loadFieldsVals">{{entry}}</span>
+</div>
+<div class="loadTableColumnEntriesContainer">
+  <div class="loadTableEntry" *ngFor="let load of loadData">
+    <app-loadentry [load]="load"></app-loadentry>
+  </div>
+</div>

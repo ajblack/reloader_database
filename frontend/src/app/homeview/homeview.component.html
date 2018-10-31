@@ -6,8 +6,6 @@
   <button class="btn btn-primary" (click)="logOffUser()">Log Off</button>
   <div class="loadDataContainer">
     <h2>Load Data</h2>
-    <div *ngFor="let loady of loadData" >
-      <app-loadentry [load]="loady"></app-loadentry>
-    </div>
+    <app-loadtable [loadData]="loadData"></app-loadtable>
   </div>
 </div>
