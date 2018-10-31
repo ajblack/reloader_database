@@ -1,41 +1,12 @@
-<div>
-  <ul>
-    <li>
-      <h3>{{load.name}}</h3>
-    </li>
-    <li>
-      <span>Caliber: </span>
-      <span>{{load.caliber}}</span>
-    </li>
-    <li>
-      <span>Bullet Weight: </span>
-      <span>{{load.bulletWeight}}</span>
-    </li>
-    <li>
-      <span>Bullet Type: </span>
-      <span>{{load.bulletType}}</span>
-    </li>
-    <li>
-      <span>Powder Weight: </span>
-      <span>{{load.powderWeight}}</span>
-    </li>
-    <li>
-      <span>Powder Type: </span>
-      <span>{{load.powderType}}</span>
-    </li>
-    <li>
-      <span>OAL: </span>
-      <span>{{load.oal}}</span>
-    </li>
-    <li>
-      <span>Primer: </span>
-      <span>{{load.primer}}</span>
-    </li>
-    <li>
-      <span>Notes: </span>
-      <div *ngFor="let note of notes">
-        <div>{{note}}</div>
-      </div>
-    </li>
-  </ul>
+<span>{{load.name}}</span>
+<span>{{load.caliber}}</span>
+<span>{{load.bulletWeight}}</span>
+<span>{{load.bulletType}}</span>
+<span>{{load.powderWeight}}</span>
+<span>{{load.powderType}}</span>
+<span>{{load.oal}}</span>
+<span>{{load.primer}}</span>
+<span *ngIf="load.notes.length>0">V</span>
+<div *ngFor="let note of notes">
+  <div>{{note}}</div>
 </div>

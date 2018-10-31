@@ -1,0 +1,25 @@
+span{
+  color: white;
+}
+
+.loadTableColumnTitleContainer{
+  background-color:grey;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.loadTableColumnEntriesContainer{
+  background-color:grey;
+  border-radius: 2px;
+}
+
+.loadTableColumnTitles{
+  width:10%;
+  display:inline-block;
+  text-align:center;
+}
+
+.loadTableEntry{
+  border: 1px solid black;
+  padding:5px;
+}

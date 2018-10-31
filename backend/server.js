@@ -58,6 +58,7 @@ router.route('/makeload').post((req, res) =>{
           res.status(200).json({'load': 'Added successfully'});
       })
       .catch(err => {
+        console.log(err);
           res.status(400).send('Failed to create new record');
       });
 });
