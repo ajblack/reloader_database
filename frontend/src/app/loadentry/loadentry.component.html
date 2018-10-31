@@ -6,7 +6,15 @@
 <span>{{load.powderType}}</span>
 <span>{{load.oal}}</span>
 <span>{{load.primer}}</span>
-<span *ngIf="load.notes.length>0" (click)="flipDetailsShowing()">V</span>
+<div  ngbDropdown class="d-inline-block">
+  <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button *ngIf="load.notes.length>0" class="dropdown-item" (click)="flipDetailsShowing()">Show Notes</button>
+    <button class="dropdown-item">Another Action</button>
+    <button class="dropdown-item">Something else is here</button>
+  </div>
+</div>
+
 <div *ngFor="let note of load.notes" [hidden]="!loadDetailsShowing">
   <div>{{note}}</div>
 </div>
