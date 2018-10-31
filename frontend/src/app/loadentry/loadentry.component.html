@@ -6,7 +6,7 @@
 <span>{{load.powderType}}</span>
 <span>{{load.oal}}</span>
 <span>{{load.primer}}</span>
-<span *ngIf="load.notes.length>0">V</span>
-<div *ngFor="let note of notes">
+<span *ngIf="load.notes.length>0" (click)="flipDetailsShowing()">V</span>
+<div *ngFor="let note of load.notes" [hidden]="!loadDetailsShowing">
   <div>{{note}}</div>
 </div>

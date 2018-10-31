@@ -8,10 +8,16 @@ import {Load} from "../load.model";
 export class LoadEntryComponent implements OnInit {
 
   @Input() load: Load;
+  loadDetailsShowing: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.loadDetailsShowing = false;
+  }
+
+  flipDetailsShowing(){
+    this.loadDetailsShowing = !this.loadDetailsShowing;
   }
 
 }
