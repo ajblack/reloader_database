@@ -4,7 +4,7 @@ import {Load} from "../load.model";
 @Component({
   selector: 'app-loadtable',
   templateUrl: './loadtable.component.html',
-  styleUrls: ['./loadtable.component.css']
+  styleUrls: ['./loadtable.component.scss']
 })
 export class LoadTableComponent implements OnInit {
   @Input() loadData: Load[];
@@ -22,8 +22,7 @@ export class LoadTableComponent implements OnInit {
       "powderWeight":"Powder Weight",
       "powderType":"Powder Type",
       "oal":"OAL",
-      "primer":"Primer",
-      "notes":"Notes"
+      "primer":"Primer"
     }
 
     this.loadFieldsProps = Object.keys(this.loadFields);

@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 span{
   color: white;
   width:10%;
@@ -8,8 +10,14 @@ span{
 }
 
 .d-inline-block{
-  width:15%;
+  width:20%;
+  .toggle-btn{
+
+  }
 }
-.toggle-btn{
-  width: 100%;
+
+@media (max-width: #{$mobile_max}){
+  .loadDataPoint{
+    display:block;
+  }
 }
