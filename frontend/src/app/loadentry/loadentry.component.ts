@@ -3,7 +3,7 @@ import {Load} from "../load.model";
 @Component({
   selector: 'app-loadentry',
   templateUrl: './loadentry.component.html',
-  styleUrls: ['./loadentry.component.css']
+  styleUrls: ['./loadentry.component.scss']
 })
 export class LoadEntryComponent implements OnInit {
 

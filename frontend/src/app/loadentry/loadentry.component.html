@@ -1,19 +1,21 @@
-<span>{{load.name}}</span>
-<span>{{load.caliber}}</span>
-<span>{{load.bulletWeight}}</span>
-<span>{{load.bulletType}}</span>
-<span>{{load.powderWeight}}</span>
-<span>{{load.powderType}}</span>
-<span>{{load.oal}}</span>
-<span>{{load.primer}}</span>
+<span class="loadDataPoint">{{load.name}}</span>
+<span class="loadDataPoint">{{load.caliber}}</span>
+<span class="loadDataPoint">{{load.bulletWeight}}</span>
+<span class="loadDataPoint">{{load.bulletType}}</span>
+<span class="loadDataPoint">{{load.powderWeight}}</span>
+<span class="loadDataPoint">{{load.powderType}}</span>
+<span class="loadDataPoint">{{load.oal}}</span>
+<span class="loadDataPoint">{{load.primer}}</span>
+
 <div  ngbDropdown class="d-inline-block">
-  <button class="btn btn-primary toggle-btn" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+  <button class="btn btn-primary toggle-btn" id="dropdownBasic1" ngbDropdownToggle>Options</button>
   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
     <button *ngIf="load.notes.length>0 && !loadDetailsShowing" class="dropdown-item" (click)="flipDetailsShowing()">Show Notes</button>
     <button *ngIf="load.notes.length>0 && loadDetailsShowing" class="dropdown-item" (click)="flipDetailsShowing()">Hide Notes</button>
     <button class="dropdown-item">Add Note</button>
   </div>
 </div>
+
 
 <div *ngFor="let note of load.notes" [hidden]="!loadDetailsShowing">
   <div>{{note}}</div>

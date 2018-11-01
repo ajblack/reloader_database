@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 span{
   color: white;
 }
@@ -22,4 +24,10 @@ span{
 .loadTableEntry{
   border: 1px solid black;
   padding:5px;
+}
+
+@media (max-width: #{$mobile_max}){
+  .loadTableColumnTitleContainer{
+    display:none;
+  }
 }
