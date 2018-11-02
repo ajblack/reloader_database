@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {Load} from "../load.model";
 import {LoadService} from "../load.service";
 @Component({
@@ -9,7 +9,6 @@ import {LoadService} from "../load.service";
 export class LoadEntryComponent implements OnInit {
 
   @Input() load: Load;
-  @Output() oE: EventEmitter<any> = new EventEmitter();
   loadDetailsShowing: boolean;
 
   constructor(private loadService: LoadService) { }
