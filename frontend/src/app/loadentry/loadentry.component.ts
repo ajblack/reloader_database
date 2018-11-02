@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Load} from "../load.model";
+import {LoadService} from "../load.service";
 @Component({
   selector: 'app-loadentry',
   templateUrl: './loadentry.component.html',
@@ -8,9 +9,10 @@ import {Load} from "../load.model";
 export class LoadEntryComponent implements OnInit {
 
   @Input() load: Load;
+  @Output() oE: EventEmitter<any> = new EventEmitter();
   loadDetailsShowing: boolean;
 
-  constructor() { }
+  constructor(private loadService: LoadService) { }
 
   ngOnInit() {
     this.loadDetailsShowing = false;
@@ -18,6 +20,10 @@ export class LoadEntryComponent implements OnInit {
 
   flipDetailsShowing(){
     this.loadDetailsShowing = !this.loadDetailsShowing;
+  }
+
+  openEditLoadModal(){
+    this.loadService.openEditLoadModal(this.load);
   }
 
 }

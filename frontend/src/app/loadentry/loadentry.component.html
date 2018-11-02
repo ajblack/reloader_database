@@ -13,6 +13,7 @@
     <button *ngIf="load.notes.length>0 && !loadDetailsShowing" class="dropdown-item" (click)="flipDetailsShowing()">Show Notes</button>
     <button *ngIf="load.notes.length>0 && loadDetailsShowing" class="dropdown-item" (click)="flipDetailsShowing()">Hide Notes</button>
     <button class="dropdown-item">Add Note</button>
+    <button class="dropdown-item" (click)="openEditLoadModal()">Edit Load Data</button>
   </div>
 </div>
 
