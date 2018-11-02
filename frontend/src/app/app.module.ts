@@ -12,12 +12,14 @@ import {HttpClientModule} from "@angular/common/http";
 import { PriceviewComponent } from './priceview/priceview.component';
 import {UserService} from './user.service';
 import {AlertService} from './alert.service';
+import {LoadService} from './load.service';
 import {AuthGuardService} from './auth-guard.service';
 import {AuthInterceptor} from './auth-interceptor';
 import { RegUserComponent } from './reg-user/reg-user.component';
 import {LoadEntryComponent} from './loadentry/loadentry.component';
 import {LoadTableComponent} from './loadtable/loadtable.component';
 import { HomeViewComponent } from './homeview/homeview.component';
+import { EditLoadComponent } from './editload/editload.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     LoadEntryComponent,
     LoadTableComponent,
     RegUserComponent,
-    HomeViewComponent
+    HomeViewComponent,
+    EditLoadComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ApiService,
     UserService,
     AlertService,
+    LoadService,
     AuthGuardService
 
   ],

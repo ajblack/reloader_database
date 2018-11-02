@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {Load} from "../load.model";
+import {LoadService} from "../load.service";
 @Component({
   selector: 'app-loadentry',
   templateUrl: './loadentry.component.html',
@@ -10,7 +11,7 @@ export class LoadEntryComponent implements OnInit {
   @Input() load: Load;
   loadDetailsShowing: boolean;
 
-  constructor() { }
+  constructor(private loadService: LoadService) { }
 
   ngOnInit() {
     this.loadDetailsShowing = false;
@@ -18,6 +19,10 @@ export class LoadEntryComponent implements OnInit {
 
   flipDetailsShowing(){
     this.loadDetailsShowing = !this.loadDetailsShowing;
+  }
+
+  openEditLoadModal(){
+    this.loadService.openEditLoadModal(this.load);
   }
 
 }

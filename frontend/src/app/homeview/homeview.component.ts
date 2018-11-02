@@ -20,7 +20,6 @@ export class HomeViewComponent implements OnInit {
     this.user = this.userService.getCurrentUser();
     this.userService.getUserLoadData().subscribe((loads: Load[]) =>{
        this.loadData = loads;
-       //this.checkData();
     });
   }
 

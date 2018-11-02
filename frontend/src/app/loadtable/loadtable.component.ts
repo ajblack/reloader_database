@@ -30,8 +30,10 @@ export class LoadTableComponent implements OnInit {
   }
 
   ngOnChanges(){
+    /*
     console.log("ngOnchanges called for load table")
     console.log(this.loadData);
+    */
   }
 
 }
