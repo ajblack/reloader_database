@@ -63,6 +63,13 @@ router.route('/makeload').post((req, res) =>{
       });
 });
 
+router.route('/:id').put((req,res) => {
+  Load.findByIdAndUpdate(req.params.id, req.body, function(err, post){
+    if(err) return next(err);
+    res.json(post);
+  });
+});
+
 router.route('/userloads/:username').get((req, res) =>{
   Load.find({owner: req.params.username}, function(err, loads){
     if (err)
