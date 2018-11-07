@@ -72,7 +72,6 @@ router.route('/editload').put((req, res) =>{
       return next(err);
     }
     console.log("load modified successfully");
-    console.log(post);
     res.json(post);
   });
 });
