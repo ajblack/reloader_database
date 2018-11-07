@@ -1,15 +1,15 @@
 import { Component, ViewChild, TemplateRef, OnInit, ViewEncapsulation} from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoadService} from "../load.service";
 import {UserService} from "../user.service";
 import {Load} from '../load.model';
-
 @Component({
   selector: 'app-editload',
   templateUrl: './editload.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./editload.component.scss']
 })
+
 export class EditLoadComponent implements OnInit {
   currentLoad: Load;
   newCal: string;

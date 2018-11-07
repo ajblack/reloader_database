@@ -18,7 +18,7 @@ export class LoadTableComponent implements OnInit {
       "name":"Load Name",
       "caliber":"Caliber",
       "bulletWeight":"Bullet Weight",
-      "bulletType": "Bullet Type"
+      "bulletType": "Bullet Type",
       "powderWeight":"Powder Weight",
       "powderType":"Powder Type",
       "oal":"OAL",
