@@ -28,7 +28,7 @@ export class UserService {
   editLoad(currentLoad: Load){
     console.log("Editing load from frontend");
     return this.http.put(`${this.uri}/editload`, currentLoad);
-
+      //.pipe(map((res: any) => res.map((load:Load) => new Load().deserialize(load))));
   }
 
   authUser(email, password){
