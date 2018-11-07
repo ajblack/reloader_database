@@ -1,4 +1,4 @@
-import { Component, ViewChild, TemplateRef, OnInit, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, TemplateRef, OnInit, ViewEncapsulation} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {LoadService} from "../load.service";
 import {UserService} from "../user.service";
@@ -16,7 +16,7 @@ export class EditLoadComponent implements OnInit {
 
   @ViewChild("content") modalContent: TemplateRef<any>
 
-  constructor(private modalService: NgbModal, private loadService: LoadService, private userService: UserService, private ref: ChangeDetectorRef) {
+  constructor(private modalService: NgbModal, private loadService: LoadService, private userService: UserService) {
     loadService.currentLoadSet$.subscribe(
       load => {
         this.currentLoad = load;
