@@ -3,6 +3,8 @@ import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoadService} from "../load.service";
 import {UserService} from "../user.service";
 import {Load} from '../load.model';
+import {AlertService} from "../alert.service";
+
 @Component({
   selector: 'app-editload',
   templateUrl: './editload.component.html',
@@ -16,7 +18,7 @@ export class EditLoadComponent implements OnInit {
 
   @ViewChild("content") modalContent: TemplateRef<any>
 
-  constructor(private modalService: NgbModal, private loadService: LoadService, private userService: UserService) {
+  constructor(private alertService: AlertService,private modalService: NgbModal, private loadService: LoadService, private userService: UserService) {
     loadService.currentLoadSet$.subscribe(
       load => {
         this.currentLoad = load;
@@ -51,6 +53,7 @@ export class EditLoadComponent implements OnInit {
     console.log(this.currentLoad);
     this.userService.editLoad(this.currentLoad).subscribe((load: Load) =>{
        this.currentLoad = new Load().fromJSON(load);
+       this.alertService.sendMessage("Load data successfully updated", "success");
     });
   }
 
