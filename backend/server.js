@@ -55,7 +55,7 @@ router.route('/makeload').post((req, res) =>{
   let load = new Load(req.body);
   load.save()
       .then(issue => {
-          res.status(200).json({'load': 'Added successfully'});
+          res.status(200).json({'load': 'modified successfully'});
       })
       .catch(err => {
         console.log(err);
@@ -63,12 +63,20 @@ router.route('/makeload').post((req, res) =>{
       });
 });
 
-router.route('/:id').put((req,res) => {
-  Load.findByIdAndUpdate(req.params.id, req.body, function(err, post){
-    if(err) return next(err);
+router.route('/editload').put((req, res) =>{
+  console.log('hit route');
+
+  Load.findByIdAndUpdate(req.body._id, req.body, function(err, post){
+    if(err){
+      console.log("Error in update load");
+      return next(err);
+    }
+    console.log("load modified successfully");
     res.json(post);
   });
 });
+
+
 
 router.route('/userloads/:username').get((req, res) =>{
   Load.find({owner: req.params.username}, function(err, loads){
