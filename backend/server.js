@@ -66,7 +66,7 @@ router.route('/makeload').post((req, res) =>{
 router.route('/editload').put((req, res) =>{
   console.log('hit route');
 
-  Load.findByIdAndUpdate(req.body._id, req.body, function(err, post){
+  Load.findByIdAndUpdate(req.body._id, req.body,{ new: true }, function(err, post){
     if(err){
       console.log("Error in update load");
       return next(err);
