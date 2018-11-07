@@ -13,21 +13,21 @@
       <label for="loadname">Caliber:</label>
       <input type="text" class="form-control" id="loadcaliber" value="{{currentLoad.caliber}}">
       <label for="loadname">Bullet Weight:</label>
-      <input type="text" class="form-control" id="loadname" value="{{currentLoad.bulletWeight}}">
+      <input type="text" class="form-control" id="loadbulletweight" value="{{currentLoad.bulletWeight}}">
       <label for="loadname">Bullet Type:</label>
-      <input type="text" class="form-control" id="loadname" value="{{currentLoad.bulletType}}">
+      <input type="text" class="form-control" id="loadbullettype" value="{{currentLoad.bulletType}}">
       <label for="loadname">Powder Weight:</label>
-      <input type="text" class="form-control" id="loadname" value="{{currentLoad.powderWeight}}">
+      <input type="text" class="form-control" id="loadpowderweight" value="{{currentLoad.powderWeight}}">
       <label for="loadname">Powder Type:</label>
-      <input type="text" class="form-control" id="loadname" value="{{currentLoad.powderType}}">
+      <input type="text" class="form-control" id="loadpowdertype" value="{{currentLoad.powderType}}">
       <label for="loadname">OAL:</label>
-      <input type="text" class="form-control" id="loadname" value="{{currentLoad.oal}}">
+      <input type="text" class="form-control" id="loadoal" value="{{currentLoad.oal}}">
       <label for="loadname">Primer:</label>
-      <input type="text" class="form-control" id="loadname" value="{{currentLoad.primer}}">
+      <input type="text" class="form-control" id="loadprimer" value="{{currentLoad.primer}}">
     </div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Save</button>
-    <button type="button" class="btn btn-light" (click)="editLoad()">Test Edit</button>
+    <button type="button" class="btn btn-light" (click)="editLoad(); modal.close('Close click')">Test Edit</button>
   </div>
 </ng-template>
