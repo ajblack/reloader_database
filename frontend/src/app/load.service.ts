@@ -11,4 +11,6 @@ export class LoadService {
     openEditLoadModal(cL: Load){
       this.currentLoad.next(cL);
     }
+
+    
 }

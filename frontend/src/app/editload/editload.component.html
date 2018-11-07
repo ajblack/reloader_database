@@ -1,7 +1,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title">Edit Load Details</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -10,9 +10,24 @@
     <div class="form-group">
       <label for="loadname">Load Name:</label>
       <input type="text" class="form-control" id="loadname" value="{{currentLoad.name}}">
+      <label for="loadname">Caliber:</label>
+      <input type="text" class="form-control" id="loadcaliber" value="{{currentLoad.caliber}}">
+      <label for="loadname">Bullet Weight:</label>
+      <input type="text" class="form-control" id="loadname" value="{{currentLoad.bulletWeight}}">
+      <label for="loadname">Bullet Type:</label>
+      <input type="text" class="form-control" id="loadname" value="{{currentLoad.bulletType}}">
+      <label for="loadname">Powder Weight:</label>
+      <input type="text" class="form-control" id="loadname" value="{{currentLoad.powderWeight}}">
+      <label for="loadname">Powder Type:</label>
+      <input type="text" class="form-control" id="loadname" value="{{currentLoad.powderType}}">
+      <label for="loadname">OAL:</label>
+      <input type="text" class="form-control" id="loadname" value="{{currentLoad.oal}}">
+      <label for="loadname">Primer:</label>
+      <input type="text" class="form-control" id="loadname" value="{{currentLoad.primer}}">
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Save</button>
+    <button type="button" class="btn btn-light" (click)="editLoad()">Test Edit</button>
   </div>
 </ng-template>

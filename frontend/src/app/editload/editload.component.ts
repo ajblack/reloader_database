@@ -1,6 +1,7 @@
-import { Component, ViewChild, TemplateRef, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, TemplateRef, OnInit, ViewEncapsulation} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {LoadService} from "../load.service";
+import {UserService} from "../user.service";
 import {Load} from '../load.model';
 
 @Component({
@@ -11,9 +12,11 @@ import {Load} from '../load.model';
 })
 export class EditLoadComponent implements OnInit {
   currentLoad: Load;
+  newCal: string;
+
   @ViewChild("content") modalContent: TemplateRef<any>
 
-  constructor(private modalService: NgbModal, private loadService: LoadService) {
+  constructor(private modalService: NgbModal, private loadService: LoadService, private userService: UserService) {
     loadService.currentLoadSet$.subscribe(
       load => {
         this.currentLoad = load;
@@ -31,6 +34,14 @@ export class EditLoadComponent implements OnInit {
 
   openModal(){
     this.openVerticallyCentered(this.modalContent);
+  }
+
+  editLoad(){
+    this.currentLoad.caliber = (<HTMLInputElement>document.getElementById("loadcaliber")).value;
+    console.log(this.currentLoad);
+    this.userService.editLoad(this.currentLoad).subscribe((load: Load) =>{
+       this.currentLoad = new Load().fromJSON(load);
+    });
   }
 
 }
