@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AppalertComponent } from './appalert.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
