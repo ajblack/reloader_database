@@ -9,7 +9,6 @@ import {AppRoutingModule} from './app.routing.module';
 import {FormsModule} from "@angular/forms";
 import {ApiService} from './app.service';
 import {HttpClientModule} from "@angular/common/http";
-import { PriceviewComponent } from './priceview/priceview.component';
 import {UserService} from './user.service';
 import {AlertService} from './alert.service';
 import {LoadService} from './load.service';
@@ -26,7 +25,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     AppalertComponent,
-    PriceviewComponent,
     LoadEntryComponent,
     LoadTableComponent,
     RegUserComponent,
