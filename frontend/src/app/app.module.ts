@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppalertComponent } from './appalert/appalert.component';
@@ -20,6 +19,8 @@ import {LoadTableComponent} from './loadtable/loadtable.component';
 import { HomeViewComponent } from './homeview/homeview.component';
 import { EditLoadComponent } from './editload/editload.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [
     AuthInterceptor,
