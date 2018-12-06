@@ -20,7 +20,6 @@ import { HomeViewComponent } from './homeview/homeview.component';
 import { EditLoadComponent } from './editload/editload.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
