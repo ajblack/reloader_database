@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {ApiService} from './app.service';
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from './user.service';
+import {SplunkDataService} from './splunkdata.service';
 import {AlertService} from './alert.service';
 import {LoadService} from './load.service';
 import {AuthGuardService} from './auth-guard.service';
@@ -18,6 +19,7 @@ import {LoadEntryComponent} from './loadentry/loadentry.component';
 import {LoadTableComponent} from './loadtable/loadtable.component';
 import { HomeViewComponent } from './homeview/homeview.component';
 import { EditLoadComponent } from './editload/editload.component';
+import { SplunkReportComponent } from './splunkreport/splunkreport.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
@@ -29,7 +31,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     LoadTableComponent,
     RegUserComponent,
     HomeViewComponent,
-    EditLoadComponent
+    EditLoadComponent,
+    SplunkReportComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     },
     ApiService,
     UserService,
+    SplunkDataService,
     AlertService,
     LoadService,
     AuthGuardService
